@@ -1,0 +1,22 @@
+{
+  "name": "learn-html5",
+  "version": "1.0.0",
+  "description": "html5学习资料",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/http-server -p 8011"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iq9891/learn-html5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iq9891/learn-html5/issues"
+  },
+  "homepage": "https://github.com/iq9891/learn-html5#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
