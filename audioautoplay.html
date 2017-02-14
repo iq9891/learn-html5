@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>视频自动播放</title>
+    <title>音频自动播放</title>
   </head>
   <body>
-    <video id="video" controls src="sample.mp4"></video>
+    <audio id="audio" controls src="sample.mp3"></audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
     <script>
@@ -20,8 +20,8 @@
     });
     //微信中，验证完毕
     wx.ready(function(){
-      //执行播放视频
-    	document.getElementById('video').play();
+      //执行播放音频
+    	document.getElementById('audio').play();
     });
     </script>
   </body>
