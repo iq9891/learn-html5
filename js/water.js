@@ -8,7 +8,7 @@ function Water() {
   //设置 canvas 的水
   this.drawWater();
   //动画
-	this.drawframe();
+  this.drawframe();
 
 }
 //声明参数
@@ -25,7 +25,7 @@ Water.prototype.initVar = function () {
   this.iBuffer = 15; //缓冲 数字太小中间会有不流畅的过渡
   this.iFriction = 0.15; //摩擦力
   this.iDeceleration = 0.95; //减速
-  this.oAnimationFrame = null;
+  this.oAnimationFrame = null; //帧数变化的名字
 };
 //设置 canvas 的宽高
 Water.prototype.setCanvas = function () {
@@ -42,7 +42,7 @@ Water.prototype.initVertex = function () {
       //如果是起震点，就初始差分值
       diffPt: i === this.iStartingPoint ? this.iInitialDiff : 0  //初始差分值
     };
-	}
+  }
 };
 //设置 canvas 的水
 Water.prototype.drawWater = function () {
@@ -87,7 +87,7 @@ Water.prototype.updatePostion = function (oVertex, oVertexId) {
 
   }
 
-  oVertex.vy += (oVertex.diffPt + this.iWinHeight / 2 - oVertex.y);
+  oVertex.vy += oVertex.diffPt + this.iWinHeight / 2 - oVertex.y;
   oVertex.vy *= this.iDeceleration;
   oVertex.y += oVertex.vy * this.iFriction;
 
@@ -99,7 +99,7 @@ Water.prototype.drawframe = function (){
   this.update();
   this.drawWater();
   //如果速度为0了就停止动画
-  if (Math.abs(this.aVertexes[this.iStartingPoint].vy).toFixed(3) < 0.01) { //75.529 //0.01
+  if (Math.abs(this.aVertexes[this.iStartingPoint].vy).toFixed(3) < 0.01) {
     //取消
     cancelAnimationFrame(this.oAnimationFrame);
     this.oAnimationFrame = null;
@@ -109,5 +109,5 @@ Water.prototype.drawframe = function (){
   }
 };
 
-//所有程序的初始化
+//程序的初始化
 new Water();
