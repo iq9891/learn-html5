@@ -15,8 +15,8 @@ Hive.prototype.initVar = function () {
   this.oCtx = this.oCanvas.getContext('2d');
   this.iWinWidth = window.innerWidth;
   this.iWinHeight = window.innerHeight;
-  this.lineLenth = 1; //总线数
-  this.rects = []; //所有线的集合
+  this.aLineLenth = 1; //总线数
+  this.aRects = []; //所有线的集合
 };
 //设置 canvas 的宽高
 Hive.prototype.setCanvas = function () {
@@ -38,12 +38,12 @@ Hive.prototype.drawframe = function (){
   this.oCtx.fillRect( 0, 0, this.iWinWidth, this.iWinHeight );
   this.oCtx.globalCompositeOperation = 'lighter';
   //如果当前线数少于规定的总线数
-  if (this.rects.length < this.lineLenth) {
-    this.rects.push(new Rect( this.oCtx ));
+  if (this.aRects.length < this.aLineLenth) {
+    this.aRects.push(new Rect( this.oCtx ));
   }
   //移动所有的方块
-  this.rects.map(function( rect ){
-    rect.move();
+  this.aRects.map(function( oRect ){
+    oRect.move();
   });
 
 };
