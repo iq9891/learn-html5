@@ -15,7 +15,7 @@ Hive.prototype.initVar = function () {
   this.oCtx = this.oCanvas.getContext('2d');
   this.iWinWidth = window.innerWidth;
   this.iWinHeight = window.innerHeight;
-  this.lineLenth = 1; //允许多少个线
+  this.lineLenth = 1; //总线数
   this.rects = []; //所有线的集合
 };
 //设置 canvas 的宽高
@@ -28,7 +28,7 @@ Hive.prototype.bgBlack = function () {
   this.oCtx.fillStyle = 'black';
   this.oCtx.fillRect( 0, 0, this.iWinWidth, this.iWinHeight );
 };
-//动画
+//帧事件
 Hive.prototype.drawframe = function (){
   //添加循环帧数
   requestAnimationFrame(this.drawframe.bind(this));
@@ -37,7 +37,7 @@ Hive.prototype.drawframe = function (){
   this.oCtx.fillStyle = 'rgba(0,0,0,0.04)';
   this.oCtx.fillRect( 0, 0, this.iWinWidth, this.iWinHeight );
   this.oCtx.globalCompositeOperation = 'lighter';
-  //如果没有方块
+  //如果当前线数少于规定的总线数
   if (this.rects.length < this.lineLenth) {
     this.rects.push(new Rect( this.oCtx ));
   }
